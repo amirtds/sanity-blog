@@ -13,6 +13,7 @@ export default function OnePost(){
     const [post, setPost] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
+      // This is GROQ syntax for our query, to learn more about it, check out the docs at https://www.sanity.io/docs/groq
       sanityClient.fetch(
         `*[_type == "post" && slug.current == $slug][0]{
           title,
