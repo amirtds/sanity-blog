@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import sanityClient from '../client';
 import imageUrlBuilder from '@sanity/image-url';
-import BlockContent from '@sanity/block-content-to-react';
+import { PortableText } from '@portabletext/react'
 import { Helmet } from 'react-helmet';
 
 const builder = imageUrlBuilder(sanityClient);
@@ -141,13 +141,11 @@ export default function OnePost(){
                   />
                   <figcaption className='text-gray-700 text-center pt-2'>Sagittis scelerisque nulla cursus in enim consectetur quam.</figcaption>
                 </figure>
-                <p className="mt-8 text-xl text-gray-500 leading-8 prose prose-indigo">
-                  <BlockContent 
-                  blocks={post.body} 
-                  projectId={sanityClient.clientConfig.projectId}
-                  dataset={sanityClient.clientConfig.dataset}
+                <div className="mt-8 text-xl text-gray-500 leading-8 prose prose-indigo">
+                  <PortableText 
+                    value={post.body} 
                   />
-                </p>
+                </div>
               </div>
             </div>
         </div>
